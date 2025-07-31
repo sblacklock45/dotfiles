@@ -1,0 +1,3 @@
+# To include most of the existing syntax definitions, you can do:
+include /usr/share/nano/*.nanorc
+include /usr/share/nano/extra/*.nanorc
