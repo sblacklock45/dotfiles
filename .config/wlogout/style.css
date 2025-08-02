@@ -1,0 +1,62 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(12, 12, 12, 0.9);
+}
+
+button {
+    	border-radius: 80;
+    	text-decoration-color: #FFFFFF;
+    	color: #FFFFFF;
+	background-color: #242932;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20%;
+	animation: gradient_f 10s ease-in infinite;
+    	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+button:focus, button:active, button:hover {
+	background-color: #AD89A4;
+	outline-style: none;
+	background-size: 25%;
+}
+
+#lock {
+	margin: 10px;
+	border-radius: 5px;
+    	background-image: image(url("/home/stevan/.config/wlogout/icons/lock.png"), url("/home/stevan/.config/wlogout/icons/lock.png"));
+}
+
+#logout {
+	margin: 10px;
+	border-radius: 5px;
+    	background-image: image(url("/home/stevan/.config/wlogout/icons/logout.png"), url("/home/stevan/.config/wlogout/icons/logout.png"));
+}
+
+#suspend {
+	margin: 10px;
+	border-radius: 5px;
+    	background-image: image(url("/home/stevan/.config/wlogout/icons/suspend.png"), url("/home/stevan/.config/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+	margin: 10px;
+	border-radius: 5px;
+    	background-image: image(url("/home/stevan/.config/wlogout/icons/hibernate.png"), url("/home/stevan/.config/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+	margin: 10px;
+	border-radius: 5px;
+    	background-image: image(url("/home/stevan/.config/wlogout/icons/shutdown.png"), url("/home/stevan/.config/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+	margin: 10px;
+	border-radius: 5px;
+    	background-image: image(url("/home/stevan/.config/wlogout/icons/reboot.png"), url("/home/stevan/.config/wlogout/icons/reboot.png"));
+}

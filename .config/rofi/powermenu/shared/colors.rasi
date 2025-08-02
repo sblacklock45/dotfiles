@@ -1,0 +1,12 @@
+/**
+Rofi Colors
+**/
+
+* {
+    background:     #242932;
+    background-alt: #2F343F;
+    foreground:     #E5E9F0FF;
+    selected:       #B08CA9;
+    active:         #A3E4C588;
+    urgent:         #BF616AFF;
+}

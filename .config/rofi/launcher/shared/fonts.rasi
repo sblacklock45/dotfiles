@@ -1,0 +1,6 @@
+/** Load required fonts
+**/
+
+* {
+    font: "IosevkaTerm Nerd Font 11";
+}

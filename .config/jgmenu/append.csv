@@ -1,0 +1,10 @@
+^sep()
+Exit,^checkout(exit),system-shutdown
+^tag(exit)
+Exit to login,openbox --exit,system-log-out
+Hibernate,systemctl -i hibernate,system-hibernate
+Poweroff,systemctl -i poweroff,system-shutdown
+Reboot,systemctl -i reboot,system-reboot
+Suspend,systemctl -i suspend,system-log-out
+
+
