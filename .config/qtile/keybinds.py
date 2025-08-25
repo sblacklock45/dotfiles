@@ -27,6 +27,7 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 
+# Application definitions
 terminal = guess_terminal()
 webBrowser = "firefox"
 mailClient = "thunderbird"

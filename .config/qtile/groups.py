@@ -24,10 +24,10 @@ from libqtile.config import Group, Match
 
 def groups():
     return [
-        Group("1", label=" ", layout="monadtall", matches=[Match(wm_class="kitty")]),
-        Group("2", label=" ", layout="monadtall", matches=[Match(wm_class="firefox")]),
-        Group("3", label=" ", layout="monadtall", matches=[Match(wm_class="thunderbird")]),
-        Group("4", label=" ", layout="monadtall", matches=[Match(wm_class="nemo")]),
-        Group("5", label=" ", layout="monadtall", matches=[Match(wm_class="code")]),
-        Group("6", label=" ", layout="monadtall", matches=[Match(wm_class="vmware")]),
+        Group("1", label=" ", layout="monadtall", screen_affinity=0, matches=[Match(wm_class="kitty")]),
+        Group("2", label=" ", layout="monadtall", screen_affinity=0, matches=[Match(wm_class="firefox")]),
+        Group("3", label=" ", layout="monadtall", screen_affinity=0, matches=[Match(wm_class="thunderbird")]),
+        Group("4", label=" ", layout="monadtall", screen_affinity=1, matches=[Match(wm_class="nemo")]),
+        Group("5", label=" ", layout="monadtall", screen_affinity=1, matches=[Match(wm_class="code")]),
+        Group("6", label=" ", layout="monadtall", screen_affinity=1, matches=[Match(wm_class="vmware")]),
 ]

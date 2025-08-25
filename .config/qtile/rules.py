@@ -49,6 +49,8 @@ def rules():
         Match(wm_class="gpartedbin"), # Gparted
         Match(wm_class="timeshift-gtk"), # Timeshift
         Match(wm_class="epdfview"), # PDF viewer
+        Match(wm_class="Fuse"), # ZX Spectrum emulator
+        Match(wm_class="x64sc"), # C64 emulator
         Match(wm_class="nwg-look"), # GTK theme application
         Match(wm_class="qt5ct"), # qt5 theme settings
         Match(wm_class="qt6ct"), # qt6 theme settings

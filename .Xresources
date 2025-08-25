@@ -8,4 +8,5 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 ! Mouse cursor
-Xcursor.theme: phinger-cursors-dark
+Xcursor.theme: breeze_cursors
+Xcursor.size: 24

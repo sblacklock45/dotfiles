@@ -19,9 +19,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+Red = "#D24242"
 Dock = "#242932D9"
 Grey = "#242932"
+LightGrey = "#4A4F56"
 Green = "#DAE7C0"
+LimeGreen = "#7FBD85"
 Orange = "#F7C7AA"
 Blue = "#96D1DE"
 Yellow = "#F1DFB1"

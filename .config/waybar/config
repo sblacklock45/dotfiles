@@ -113,8 +113,8 @@
     "bluetooth": {
 	"format": "󰂯",
     	"format-disabled": "󰂲",
-	"format-alt": "bluetooth: {status}",
-	"tooltip-format": "{}"
+	"tooltip-format": "Bluetooth : {status}",
+	"on-click": "blueman-manager",
     },
     
     "wireplumber": {

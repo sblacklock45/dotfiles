@@ -88,6 +88,8 @@ window#waybar.hidden {
 
 #bluetooth {
   background-color: #F0D9EA;
+  font-family: IosevkaTerm Nerd Font;
+  font-size: 14px;
 }
 
 #memory {
@@ -105,7 +107,7 @@ window#waybar.hidden {
 
 #custom-logo {
   padding-right: 7px;
-  padding-left: 7px;
+  padding-left: 8px;
   margin-left: 5px;
   font-size: 15px;
   border-radius: 8px 0px 0px 8px;

@@ -28,6 +28,7 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.widget.groupbox2 import GroupBoxRule
 
+# Screen setup for dual monitors
 def screen():
     return [
         # Bottom bar
@@ -58,9 +59,9 @@ def screen():
                     padding_x = 9,
                     
                     rules=[
-                        GroupBoxRule(line_colour=colors.Purple, text_colour="#7FBD85").when (focused=True),
-                        GroupBoxRule(text_colour="#D24E4E").when (occupied=True),
-                        GroupBoxRule(text_colour="#4A4F56").when (occupied=False)
+                        GroupBoxRule(line_colour=colors.Purple, text_colour=colors.LimeGreen).when (focused=True),
+                        GroupBoxRule(text_colour=colors.Red).when (occupied=True),
+                        GroupBoxRule(text_colour=colors.LightGrey).when (occupied=False),
                     ]
                 ),
 
@@ -72,12 +73,15 @@ def screen():
                     length = 8,
                 ),
 
-                # Current layout icon
-                widget.CurrentLayoutIcon(),
-
                 # Current layout
                 widget.CurrentLayout(
-                    padding = 8,
+                    mode='icon',
+                ),
+
+                widget.CurrentLayout(
+                    mode="text",
+                    padding=8,
+                    foreground = colors.Blue,
                 ),
 
                 widget.Sep(
@@ -91,6 +95,231 @@ def screen():
                 # Name of current open application
                 widget.WindowName(
                     max_chars = 60,
+                    foreground = colors.OffWhite,
+                ),
+                
+                widget.Spacer(
+                    length = 5,
+                    background = colors.Dock,
+                ),
+
+                # Disk free widget
+                widget.DF(
+                    partition = "/",
+                    visible_on_warn = False,
+                    format = " {uf} {m}B {r:.0f}%",
+                    font = "JetBrainsMono Nerd Font",
+                    fontsize = 12,
+                    padding = 8,
+                    foreground = colors.Grey,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("kitty -e btop"),},
+                    decorations=[
+                        RectDecoration(colour=colors.Green, filled=True, radius=4)
+                    ]
+                ),
+
+                widget.Spacer(
+                    length = 6,
+                    background = colors.Dock,
+                ),
+                
+                # Memory widget
+                widget.Memory(
+                    format = '{MemUsed: .0f} {mm}iB',
+                    font = "JetBrainsMono Nerd Font",
+                    fontsize = 12,
+                    padding = 8,
+                    foreground = colors.Grey,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("kitty -e btop"),},
+                    decorations=[
+                        RectDecoration(colour=colors.Orange, filled=True, radius=4)
+                    ]
+                ),
+
+                widget.Spacer(
+                    length = 6,
+                    background = colors.Dock,
+                ),
+
+                # CPU widget
+                widget.CPU(
+                    format = ' {freq_current} GHz {load_percent} %',
+                    font = "JetBrainsMono Nerd Font",
+                    fontsize = 12,
+                    padding = 8,
+                    foreground = colors.Grey,
+                    decorations=[
+                        RectDecoration(colour=colors.OffWhite, filled=True, radius=4)
+                    ]
+                ),
+
+                widget.Spacer(
+                    length = 6,
+                    background = colors.Dock,
+                ),
+ 
+                # Wifi widget
+                widget.WiFiIcon(
+                    active_colour = colors.Grey,
+                    interface = "wlp2s0",
+                    padding_x = 13,
+                    padding_y = 11,
+                    foreground = colors.Grey,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("nm-connection-editor"),},
+                    decorations=[
+                        RectDecoration(colour=colors.Blue, filled=True, radius=4)
+                    ]
+                ),
+
+                widget.Spacer(
+                    length = 6,
+                    background = colors.Dock,
+                ),
+
+                # Volume control widget
+                widget.PulseVolume(
+                    font = "IosevkaTerm Nerd Font",
+                    fontsize = 15,
+                    foreground = colors.Grey,
+                    emoji = True,
+                    emoji_list = [' ',' ',' ',' '],
+                    padding = 10,
+                    volume_app = "pavucontrol",
+                    decorations=[
+                        RectDecoration(colour=colors.Yellow, filled=True, radius=4)
+                    ]
+                ),
+
+                widget.Spacer(
+                    length = 6,
+                    background = colors.Dock,
+                ),
+                
+                # Bluetooth widget
+                widget.Bluetooth(
+                    font = "JetBrainsMono Nerd Font",
+                    fontsize = 15,
+                    foreground = colors.Grey,
+                    menu_background = colors.Dock,
+                    highlight_colour = colors.Purple,
+                    menu_foreground_highlighted = colors.Grey,
+                    menu_font = "Cantarell",
+                    menu_fontsize = 13,
+                    highlight_radius = 4,
+                    default_text = "󰂯",
+                    padding = 12,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("blueman-manager"),},
+                    decorations=[
+                        RectDecoration(colour=colors.Lavender, filled=True, radius=4)
+                    ]
+                ),
+
+                widget.Spacer(
+                    length = 6,
+                    background = colors.Dock,
+                ),
+
+                # Clock widget
+                widget.Clock(
+                    format="  %H:%M",
+                    font = "JetBrainsMono Nerd Font",
+                    fontsize = 12,
+                    padding = 8,
+                    foreground = colors.Grey,
+                    decorations=[
+                        RectDecoration(colour=colors.Green, filled=True, radius=4)
+                    ]
+                ),
+
+                widget.Spacer(
+                    length = 6,
+                    background = colors.Dock,
+                ),
+
+                widget.TextBox(
+                    text = "",
+                    font = "JetBrainsMono Nerd Font",
+                    fontsize = 12,
+                    padding = 12,
+                    foreground = colors.Grey,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("sh /home/stevan/.config/rofi/powermenu/powermenu.sh"),},
+                    decorations=[
+                        RectDecoration(colour=colors.Orange, filled=True, radius=4)
+                    ]
+                ),
+            ],
+            32, # Bar height
+            border_width = [5,5,5,5],
+            border_color = colors.Dock,
+            background = colors.Dock,
+            margin = [0,8,8,8],
+        ),
+    ),
+
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.Spacer(length = 8),
+                
+                # Rofi menu launcher
+                widget.TextBox(
+                    text = "󰣇 ",
+                    font = "IosevkaTerm Nerd Font",
+                    fontsize = 17,
+                    foreground = colors.Blue,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("sh /home/stevan/.config/rofi/launcher/launcher.sh"),},
+                    
+                ),
+
+                widget.Spacer(length = 7),
+
+                widget.Sep(
+                    foreground = colors.Seperator,
+                ),
+             
+                # Groupbox (qtile extras)
+                widget.GroupBox2(
+                    fontsize = 15,
+                    padding_x = 9,
+                    
+                    rules=[
+                        GroupBoxRule(line_colour=colors.Purple, text_colour=colors.LimeGreen).when (focused=True),
+                        GroupBoxRule(text_colour=colors.Red).when (occupied=True),
+                        GroupBoxRule(text_colour=colors.LightGrey).when (occupied=False)
+                    ]
+                ),
+
+                widget.Sep(
+                    foreground = colors.Seperator,
+                ),
+
+                widget.Spacer(
+                    length = 8,
+                ),
+
+                # Current layout
+                widget.CurrentLayout(
+                    mode='icon',
+                ),
+
+                widget.CurrentLayout(
+                    mode="text",
+                    padding=8,
+                    foreground = colors.Blue,
+                ),
+
+                widget.Sep(
+                    foreground = colors.Seperator,
+                ),
+
+                widget.Spacer(
+                    length = 8,
+                ),
+
+                # Name of current open application
+                widget.WindowName(
+                    max_chars = 60,
+                    foreground = colors.OffWhite,
                 ),
                 
                 widget.Spacer(

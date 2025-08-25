@@ -23,56 +23,21 @@ import colors
 
 from libqtile import layout
 from libqtile.config import Match
-from qtile_extras.layout.decorations import ConditionalBorderWidth
-
-# Conditional border width currently used due to bug with firefox and thunderbird showing a gap
-# between the application and the border (old X11 bug). Ensures no border for firefox and thunderbird only
 
 # Default variables for all layouts
 layout_vars = {"margin": 8,
+               "border_width": 2,
                "border_focus": colors.Purple,
                "border_normal": colors.Inactive,
 }
 
 def layouts():
     return [
-        layout.Max(**layout_vars,
-               border_width=ConditionalBorderWidth(
-                    default=2,
-                    matches=[
-                        (Match(wm_class="firefox"), 0),
-                        (Match(wm_class="thunderbird"), 0)
-                    ]
-        )
-    ),
-    
-    layout.MonadTall(**layout_vars,
-                border_width=ConditionalBorderWidth(
-                    default=2,
-                    matches=[
-                        (Match(wm_class="firefox"), 0),
-                        (Match(wm_class="thunderbird"), 0)
-                    ]
-        )
-    ),
-    
-    layout.MonadWide(**layout_vars,
-                border_width=ConditionalBorderWidth(
-                    default=2,
-                    matches=[
-                        (Match(wm_class="firefox"), 0),
-                        (Match(wm_class="thunderbird"), 0),
-                    ]
-        )
-    ),
-    
-    layout.Tile(**layout_vars,
-                border_width=ConditionalBorderWidth(
-                    default=2,
-                    matches=[
-                        (Match(wm_class="firefox"), 0),
-                        (Match(wm_class="thunderbird"), 0)
-                    ]
-        )
-    ),
+        layout.Max(**layout_vars),
+        layout.MonadTall(**layout_vars),
+        layout.MonadWide(**layout_vars),
+        layout.Tile(**layout_vars),
+        layout.Bsp(**layout_vars),
+        layout.RatioTile(**layout_vars),
+        layout.Columns(**layout_vars),
 ]
