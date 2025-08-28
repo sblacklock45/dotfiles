@@ -1,4 +1,4 @@
 Browser,firefox,firefox
-File manager,pcmanfm,system-file-manager
+File manager,nemo,system-file-manager
 Terminal,kitty
 ^sep()
