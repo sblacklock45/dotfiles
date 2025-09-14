@@ -8,3 +8,4 @@ alias lt='ls --tree'
 # Application aliases
 alias ncdu='ncdu --color dark'
 alias vim='nvim'
+alias spt='spotify_player'
