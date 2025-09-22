@@ -19,16 +19,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import colors
-
 from libqtile import layout
 from libqtile.config import Match
+from colors import colors
 
 # Default variables for all layouts
 layout_vars = {"margin": 8,
                "border_width": 2,
-               "border_focus": colors.Purple,
-               "border_normal": colors.Inactive,
+               "border_focus": colors["Magenta"],
+               "border_normal": colors["Inactive"],
 }
 
 def layouts():

@@ -20,7 +20,6 @@
 # SOFTWARE.
 
 import os, subprocess
-import colors
 
 from libqtile import extension, hook, layout, qtile
 from libqtile.config import Key, Screen
@@ -31,6 +30,7 @@ from groups import groups
 from layouts import layouts
 from screens import screen
 from rules import rules
+from colors import colors
 
 home = os.path.expanduser("~")
 
@@ -96,8 +96,8 @@ cursor_warp = False
 
 # Floating window rules
 floating_layout = layout.Floating(
-    border_focus = colors.Purple,
-    border_normal = colors.Normal,
+    border_focus = colors["Magenta"],
+    border_normal = colors["Normal"],
     border_width = 2,
     
     float_rules=rules()

@@ -19,18 +19,22 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-Red = "#D24242"
-Dock = "#242932D9"
-Grey = "#242932"
-LightGrey = "#4A4F56"
-Green = "#DAE7C0"
-LimeGreen = "#7FBD85"
-Orange = "#F7C7AA"
-Blue = "#96D1DE"
-Yellow = "#F1DFB1"
-Purple = "#AD89A4"
-Lavender = "#F0D9EA"
-OffWhite = "#EFDAC6"
-Inactive = "#343637"
-Seperator = "#303236"
-Normal = "#383838C1"
+import os
+
+colors = {
+    "Red": "#D24242",
+    "Bar": "#242932D9",
+    "Grey": "#242932",
+    "lightGrey": "#4A4F56",
+    "lightGreen": "#DAE7C0",
+    "Green": "#7FBD85",
+    "Orange": "#F7C7AA",
+    "Blue": "#96D1DE",
+    "Yellow": "#F1DFB1",
+    "Magenta": "#AD89A4",
+    "lightMagenta": "#F0D9EA",
+    "White": "#EFDAC6",
+    "Inactive": "#343637",
+    "Seperator": "#303236",
+    "Normal": "#383838C1",
+}

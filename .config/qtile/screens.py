@@ -19,14 +19,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import colors
-
 from libqtile.config import Screen
 from libqtile import bar, widget, qtile
 from qtile_extras import widget
 
 from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.widget.groupbox2 import GroupBoxRule
+
+from colors import colors
 
 # Screen setup for dual monitors
 def screen():
@@ -42,7 +42,7 @@ def screen():
                     text = "󰣇 ",
                     font = "IosevkaTerm Nerd Font",
                     fontsize = 17,
-                    foreground = colors.Blue,
+                    foreground = colors["Blue"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("sh /home/stevan/.config/rofi/launcher/launcher.sh"),},
                     
                 ),
@@ -50,7 +50,7 @@ def screen():
                 widget.Spacer(length = 7),
 
                 widget.Sep(
-                    foreground = colors.Seperator,
+                    foreground = colors["Seperator"],
                 ),
              
                 # Groupbox (qtile extras)
@@ -59,14 +59,14 @@ def screen():
                     padding_x = 9,
                     
                     rules=[
-                        GroupBoxRule(line_colour=colors.Purple, text_colour=colors.LimeGreen).when (focused=True),
-                        GroupBoxRule(text_colour=colors.Red).when (occupied=True),
-                        GroupBoxRule(text_colour=colors.LightGrey).when (occupied=False),
+                        GroupBoxRule(line_colour=colors["Magenta"], text_colour=colors["Green"]).when (focused=True),
+                        GroupBoxRule(text_colour=colors["Red"]).when (occupied=True),
+                        GroupBoxRule(text_colour=colors["lightGrey"]).when (occupied=False),
                     ]
                 ),
 
                 widget.Sep(
-                    foreground = colors.Seperator,
+                    foreground = colors["Seperator"],
                 ),
 
                 widget.Spacer(
@@ -81,11 +81,11 @@ def screen():
                 widget.CurrentLayout(
                     mode="text",
                     padding=8,
-                    foreground = colors.Blue,
+                    foreground = colors["Blue"],
                 ),
 
                 widget.Sep(
-                    foreground = colors.Seperator,
+                    foreground = colors["Seperator"],
                 ),
 
                 widget.Spacer(
@@ -95,12 +95,12 @@ def screen():
                 # Name of current open application
                 widget.WindowName(
                     max_chars = 60,
-                    foreground = colors.OffWhite,
+                    foreground = colors["White"],
                 ),
                 
                 widget.Spacer(
                     length = 5,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # Disk free widget
@@ -111,16 +111,16 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("kitty -e btop"),},
                     decorations=[
-                        RectDecoration(colour=colors.Green, filled=True, radius=4)
+                        RectDecoration(colour=colors["lightGreen"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
                 
                 # Memory widget
@@ -129,16 +129,16 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("kitty -e btop"),},
                     decorations=[
-                        RectDecoration(colour=colors.Orange, filled=True, radius=4)
+                        RectDecoration(colour=colors["Orange"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # CPU widget
@@ -147,62 +147,62 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     decorations=[
-                        RectDecoration(colour=colors.OffWhite, filled=True, radius=4)
+                        RectDecoration(colour=colors["White"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
  
                 # Wifi widget
                 widget.WiFiIcon(
-                    active_colour = colors.Grey,
+                    active_colour = colors["Grey"],
                     interface = "wlp2s0",
                     padding_x = 13,
                     padding_y = 11,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("nm-connection-editor"),},
                     decorations=[
-                        RectDecoration(colour=colors.Blue, filled=True, radius=4)
+                        RectDecoration(colour=colors["Blue"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # Volume control widget
                 widget.PulseVolume(
                     font = "IosevkaTerm Nerd Font",
                     fontsize = 15,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     emoji = True,
                     emoji_list = [' ',' ',' ',' '],
                     padding = 10,
                     volume_app = "pavucontrol",
                     decorations=[
-                        RectDecoration(colour=colors.Yellow, filled=True, radius=4)
+                        RectDecoration(colour=colors["Yellow"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
                 
                 # Bluetooth widget
                 widget.Bluetooth(
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 15,
-                    foreground = colors.Grey,
-                    menu_background = colors.Dock,
-                    highlight_colour = colors.Purple,
-                    menu_foreground_highlighted = colors.Grey,
+                    foreground = colors["Bar"],
+                    menu_background = colors["Bar"],
+                    highlight_colour = colors["Magenta"],
+                    menu_foreground_highlighted = colors["Grey"],
                     menu_font = "Cantarell",
                     menu_fontsize = 13,
                     highlight_radius = 4,
@@ -210,13 +210,13 @@ def screen():
                     padding = 12,
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("blueman-manager"),},
                     decorations=[
-                        RectDecoration(colour=colors.Lavender, filled=True, radius=4)
+                        RectDecoration(colour=colors["lightMagenta"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # Clock widget
@@ -225,15 +225,15 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     decorations=[
-                        RectDecoration(colour=colors.Green, filled=True, radius=4)
+                        RectDecoration(colour=colors["lightGreen"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 widget.TextBox(
@@ -241,17 +241,17 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 12,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("sh /home/stevan/.config/rofi/powermenu/powermenu.sh"),},
                     decorations=[
-                        RectDecoration(colour=colors.Orange, filled=True, radius=4)
+                        RectDecoration(colour=colors["Orange"], filled=True, radius=4)
                     ]
                 ),
             ],
             32, # Bar height
             border_width = [5,5,5,5],
-            border_color = colors.Dock,
-            background = colors.Dock,
+            border_color = colors["Bar"],
+            background = colors["Bar"],
             margin = [0,8,8,8],
         ),
     ),
@@ -266,7 +266,7 @@ def screen():
                     text = "󰣇 ",
                     font = "IosevkaTerm Nerd Font",
                     fontsize = 17,
-                    foreground = colors.Blue,
+                    foreground = colors["Blue"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("sh /home/stevan/.config/rofi/launcher/launcher.sh"),},
                     
                 ),
@@ -274,7 +274,7 @@ def screen():
                 widget.Spacer(length = 7),
 
                 widget.Sep(
-                    foreground = colors.Seperator,
+                    foreground = colors["Seperator"],
                 ),
              
                 # Groupbox (qtile extras)
@@ -283,14 +283,14 @@ def screen():
                     padding_x = 9,
                     
                     rules=[
-                        GroupBoxRule(line_colour=colors.Purple, text_colour=colors.LimeGreen).when (focused=True),
-                        GroupBoxRule(text_colour=colors.Red).when (occupied=True),
-                        GroupBoxRule(text_colour=colors.LightGrey).when (occupied=False)
+                        GroupBoxRule(line_colour=colors["Magenta"], text_colour=colors["Green"]).when (focused=True),
+                        GroupBoxRule(text_colour=colors["Red"]).when (occupied=True),
+                        GroupBoxRule(text_colour=colors["lightGrey"]).when (occupied=False)
                     ]
                 ),
 
                 widget.Sep(
-                    foreground = colors.Seperator,
+                    foreground = colors["Seperator"],
                 ),
 
                 widget.Spacer(
@@ -305,11 +305,11 @@ def screen():
                 widget.CurrentLayout(
                     mode="text",
                     padding=8,
-                    foreground = colors.Blue,
+                    foreground = colors["Blue"],
                 ),
 
                 widget.Sep(
-                    foreground = colors.Seperator,
+                    foreground = colors["Seperator"],
                 ),
 
                 widget.Spacer(
@@ -319,12 +319,12 @@ def screen():
                 # Name of current open application
                 widget.WindowName(
                     max_chars = 60,
-                    foreground = colors.OffWhite,
+                    foreground = colors["White"],
                 ),
                 
                 widget.Spacer(
                     length = 5,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # Disk free widget
@@ -335,16 +335,16 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("kitty -e btop"),},
                     decorations=[
-                        RectDecoration(colour=colors.Green, filled=True, radius=4)
+                        RectDecoration(colour=colors["lightGreen"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
                 
                 # Memory widget
@@ -353,16 +353,16 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("kitty -e btop"),},
                     decorations=[
-                        RectDecoration(colour=colors.Orange, filled=True, radius=4)
+                        RectDecoration(colour=colors["Orange"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # CPU widget
@@ -371,62 +371,62 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     decorations=[
-                        RectDecoration(colour=colors.OffWhite, filled=True, radius=4)
+                        RectDecoration(colour=colors["White"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
  
                 # Wifi widget
                 widget.WiFiIcon(
-                    active_colour = colors.Grey,
+                    active_colour = colors["Grey"],
                     interface = "wlp2s0",
                     padding_x = 13,
                     padding_y = 11,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("nm-connection-editor"),},
                     decorations=[
-                        RectDecoration(colour=colors.Blue, filled=True, radius=4)
+                        RectDecoration(colour=colors["Blue"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # Volume control widget
                 widget.PulseVolume(
                     font = "IosevkaTerm Nerd Font",
                     fontsize = 15,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     emoji = True,
                     emoji_list = [' ',' ',' ',' '],
                     padding = 10,
                     volume_app = "pavucontrol",
                     decorations=[
-                        RectDecoration(colour=colors.Yellow, filled=True, radius=4)
+                        RectDecoration(colour=colors["Yellow"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
                 
                 # Bluetooth widget
                 widget.Bluetooth(
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 15,
-                    foreground = colors.Grey,
-                    menu_background = colors.Dock,
-                    highlight_colour = colors.Purple,
-                    menu_foreground_highlighted = colors.Grey,
+                    foreground = colors["Grey"],
+                    menu_background = colors["Bar"],
+                    highlight_colour = colors["Magenta"],
+                    menu_foreground_highlighted = colors["Grey"],
                     menu_font = "Cantarell",
                     menu_fontsize = 13,
                     highlight_radius = 4,
@@ -434,13 +434,13 @@ def screen():
                     padding = 12,
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("blueman-manager"),},
                     decorations=[
-                        RectDecoration(colour=colors.Lavender, filled=True, radius=4)
+                        RectDecoration(colour=colors["lightMagenta"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 # Clock widget
@@ -449,15 +449,15 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     decorations=[
-                        RectDecoration(colour=colors.Green, filled=True, radius=4)
+                        RectDecoration(colour=colors["lightGreen"], filled=True, radius=4)
                     ]
                 ),
 
                 widget.Spacer(
                     length = 6,
-                    background = colors.Dock,
+                    background = colors["Bar"],
                 ),
 
                 widget.TextBox(
@@ -465,17 +465,17 @@ def screen():
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 12,
-                    foreground = colors.Grey,
+                    foreground = colors["Grey"],
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("sh /home/stevan/.config/rofi/powermenu/powermenu.sh"),},
                     decorations=[
-                        RectDecoration(colour=colors.Orange, filled=True, radius=4)
+                        RectDecoration(colour=colors["Orange"], filled=True, radius=4)
                     ]
                 ),
             ],
             32, # Bar height
             border_width = [5,5,5,5],
-            border_color = colors.Dock,
-            background = colors.Dock,
+            border_color = colors["Bar"],
+            background = colors["Bar"],
             margin = [0,8,8,8],
         ),
     ),
