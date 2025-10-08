@@ -7,7 +7,7 @@ DESKTOP_ENV="Qtile"
 numlockx &
 
 # Use feh to set background wallpaper
-feh --bg-fill $HOME/Pictures/Wallpaper/Nature/02.jpg &
+feh --bg-fill $HOME/Pictures/Wallpaper/Nature/Toadstool.jpg &
 
 # Start picom compositor
 picom -b

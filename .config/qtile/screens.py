@@ -107,7 +107,7 @@ def screen():
                 widget.DF(
                     partition = "/",
                     visible_on_warn = False,
-                    format = " {uf} {m}B {r:.0f}%",
+                    format = " {uf} {m}iB {r:.0f}%",
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
@@ -125,7 +125,7 @@ def screen():
                 
                 # Memory widget
                 widget.Memory(
-                    format = '{MemUsed: .0f} {mm}iB',
+                    format = '{MemUsed: .0f} {mm}iB',
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,
@@ -143,7 +143,7 @@ def screen():
 
                 # CPU widget
                 widget.CPU(
-                    format = ' {freq_current} GHz {load_percent} %',
+                    format = ' {freq_current} GHz {load_percent} %',      
                     font = "JetBrainsMono Nerd Font",
                     fontsize = 12,
                     padding = 8,

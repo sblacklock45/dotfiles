@@ -48,10 +48,9 @@ window#waybar.hidden {
 }
 
 #memory,
+#cpu,
 #custom-power,
 #custom-notification,
-#battery,
-#backlight,
 #wireplumber,
 #network,
 #bluetooth,
@@ -65,16 +64,17 @@ window#waybar.hidden {
 }
 
 #custom-notification {
-  background-color: #F7C7AA;
+  background-color: #EFDAC6;
 }
 
 #custom-power {
-  background-color: #DAE7C0;
+  background-color: #F7C7AA;
   margin-right: 6px;
+  font-size: 14px;
 }
 
 #clock {
-  background-color: #E3C7D6;
+  background-color: #DAE7C0;
 }
 
 #wireplumber {
@@ -90,10 +90,16 @@ window#waybar.hidden {
   background-color: #F0D9EA;
   font-family: IosevkaTerm Nerd Font;
   font-size: 14px;
+  padding-right: 14px;
+  padding-left: 14px;
 }
 
 #memory {
   background-color: #F7C7AA;
+}
+
+#cpu {
+  background-color: #EFDAC6;
 }
 
 #window {

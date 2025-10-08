@@ -16,9 +16,10 @@
     "modules-right": [
         "disk",
         "memory",
+	"cpu",
         "network",
+	"wireplumber",
 	"bluetooth",
-        "wireplumber",
 	"clock",
         "custom/power",
 	"custom/notification"
@@ -66,8 +67,15 @@
     
     "memory": {
         "interval": 5,
-        "format": " {}%",
+        "format": " {used:0.1f}GiB",
         "max-length": 10,
+	"on-click": "kitty -e btop"	
+    },
+
+    "cpu": {
+	"interval": 5,
+	"format": " {usage}%",
+	"max-length": 10,
 	"on-click": "kitty -e btop"
     },
     
@@ -144,7 +152,7 @@
     },
     
     "disk": {
-	"format": " {total}",
+	"format": " {used}{total}",
 	"format-alt": " {used}",
 	"interval": 60,
 	"path": "/"
